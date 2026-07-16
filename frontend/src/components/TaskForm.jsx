@@ -28,7 +28,7 @@ function TaskForm({ onCreateTask }) {
           required
         />{" "}
         <label for="task-description" class="form-label m-2">
-          Task Title
+          Task Description
         </label>
         <input
           type="text"

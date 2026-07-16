@@ -18,68 +18,82 @@ function TaskItem({ task, onToggleComplete, onDelete, onUpdate }) {
 
   if (isEditing) {
     return (
-      <li>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+      <li class="card text-center list-unstyled container justify-content-md-center">
+        <div class="card-body">
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
 
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button
-            onClick={handleSave}
-            type="button"
-            class="btn btn-outline-primary"
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
           >
-            Save
-          </button>
-          <button
-            onClick={handleCancel}
-            type="button"
-            class="btn btn-outline-danger"
-          >
-            Cancel
-          </button>
+            <button
+              onClick={handleSave}
+              type="button"
+              class="btn btn-outline-primary"
+            >
+              Save
+            </button>
+            <button
+              onClick={handleCancel}
+              type="button"
+              class="btn btn-outline-danger"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </li>
     );
   }
 
   return (
-    <li class=" list-unstyled task-items-list container justify-content-md-center">
-      <strong>{task.title}</strong> — {task.description}
-      <br />
-      Status: {task.completed ? "Complete" : "Not Complete"}
-      <br />
-      <div class="btn-group" role="group" aria-label="button group">
-        <button
-          onClick={() => onToggleComplete(task)}
-          type="button"
-          class="btn btn-outline-primary"
-        >
-          {task.completed ? "Mark Incomplete" : "Mark Complete"}
-        </button>
-        <button
-          onClick={() => setIsEditing(true)}
-          type="button"
-          class="btn btn-outline-primary"
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => onDelete(task._id)}
-          type="button"
-          class="btn btn-outline-danger"
-        >
-          Delete
-        </button>
+    <li class="card text-center list-unstyled container justify-content-md-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          <strong>{task.title}</strong>
+        </h5>
+        <p class="card-text"> {task.description} </p>
+        <br />
+        <p class="card-text">
+          {" "}
+          Status: {task.completed ? "Complete" : "Not Complete"}{" "}
+        </p>
+
+        <br />
+        <div class="btn-group" role="group" aria-label="button group">
+          <button
+            onClick={() => onToggleComplete(task)}
+            type="button"
+            class="btn btn-outline-primary"
+          >
+            {task.completed ? "Mark Incomplete" : "Mark Complete"}
+          </button>
+          <button
+            onClick={() => setIsEditing(true)}
+            type="button"
+            class="btn btn-outline-primary"
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => onDelete(task._id)}
+            type="button"
+            class="btn btn-outline-danger"
+          >
+            Delete
+          </button>
+        </div>
       </div>
-      <hr />
     </li>
   );
 }

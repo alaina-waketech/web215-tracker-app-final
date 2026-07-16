@@ -20,39 +20,41 @@ function RegisterForm({ onAuthSuccess }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form class="m-4" onSubmit={handleSubmit}>
       <h2>Create an Account</h2>
 
-      <label htmlFor="register-name">Name</label>
-      <input
-        id="register-name"
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
+      <div class="col-auto">
+        <label htmlFor="register-name">Name</label>
+        <input
+          id="register-name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-      <label htmlFor="register-email">Email</label>
-      <input
-        id="register-email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
+        <label htmlFor="register-email">Email</label>
+        <input
+          id="register-email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-      <label htmlFor="register-password">Password</label>
-      <input
-        id="register-password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
+        <label htmlFor="register-password">Password</label>
+        <input
+          id="register-password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <button type="submit">Register</button>
+        <button type="submit">Register</button>
+      </div>
     </form>
   );
 }
