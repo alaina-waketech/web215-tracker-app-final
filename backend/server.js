@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
-  res.json({ message: "M6 API is running" });
+  res.json({ message: "Task Tracker is running" });
 });
 
 app.use("/api/auth", require("./routes/authRoutes"));
